@@ -1,28 +1,41 @@
 import React from 'react';
 import TodoForm from './TodoForm';
+import database from '../firebase/firebase';
 
 class TodoList extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      todos: [
-        { text: 'test 123', id: '1' },
-        { text: 'test 234', id: '2' }
-      ]
+      todos: []
     };
   };
 
+  componentWillMount() {
+    database.ref('todos').on('child_added', (snapshot) => {
+      const todo = {
+        id: snapshot.key,
+        text: snapshot.val().text,
+        completed: false,
+        completedAt: ''
+      };
+
+      const addTodo = [...this.state.todos, todo];
+
+      this.setState({
+        todos: addTodo
+      });
+    })
+  };
+
   onChangeNewTodo(newTodo) {
-    const todo = {
+    // push new todo to firebase
+    database.ref('todos').push({
       text: newTodo.newTodo,
-      id: newTodo.id
-    };
-
-    const addTodo = [...this.state.todos, todo];
-
-    this.setState({
-      todos: addTodo
+      completed: false,
+      completedAt: ''
+    }).then(() => {
+      console.log(this.state.todos)
     });
   };
 
@@ -33,11 +46,14 @@ class TodoList extends React.Component {
         <TodoForm changeTodos={this.onChangeNewTodo.bind(this)} />
         <p>List of todos</p>
         {this.state.todos.map((todo) => {
-          return <p key={todo.id}>{todo.text} {todo.id}</p>
+          return <p key={todo.id}>{todo.text} {todo.id} {todo.completed} {todo.completedAt}</p>
         })}
       </div>
     )
   }
+
 };
+
+
 
 export default TodoList;
