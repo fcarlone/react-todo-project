@@ -1,5 +1,5 @@
 import React from 'react';
-import TodoDashboard from './TodoDashboard';
+import LoginPage from './LoginPage';
 
 class TodoApp extends React.Component {
 
@@ -7,7 +7,7 @@ class TodoApp extends React.Component {
     return (
       <div>
         <h1>React Todo Application</h1>
-        <TodoDashboard />
+        <LoginPage />
       </div>
     )
   }
