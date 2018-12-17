@@ -22,6 +22,7 @@
     "css-loader": "^1.0.0",
     "firebase": "^5.7.0",
     "live-server": "^1.2.1",
+    "moment": "^2.23.0",
     "node-sass": "^4.9.3",
     "normalize.css": "^8.0.0",
     "react": "^16.4.2",

@@ -1,42 +1,50 @@
 import React from 'react';
-const uuidv1 = require('uuid/v1');
 
 class TodoForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       newTodo: '',
-      id: ''
-    };
+      error: ''
+    }
   };
 
   handleAddTodo = (event) => {
     const newTodoText = event.target.value;
     this.setState(() => ({
       newTodo: newTodoText,
-      id: uuidv1()
-    }))
+    }));
   };
 
-  onChangeTodo(event) {
+  handleSubmit(event) {
     event.preventDefault();
 
-    this.props.changeTodos(this.state);
+    if (this.state.newTodo.length < 1) {
+      this.setState(() => ({
+        error: 'Please provide a todo item'
+      }))
+    } else {
+      this.setState(() => ({ error: '' }))
 
-    this.setState(() => ({
-      newTodo: '',
-      id: ''
-    }))
+      this.props.changeTodos(this.state);
+
+      this.setState(() => ({
+        newTodo: '',
+      }));
+    }
+
+
   }
 
   render() {
     return (
       <div>
         <h3>Todo Form Component</h3>
-        <form onSubmit={this.onChangeTodo.bind(this)}>
+        <form onSubmit={this.handleSubmit.bind(this)}>
+          {this.state.error && <p>{this.state.error}</p>}
           <input
             type="text"
-            placeholder="Enter new todo here"
+            placeholder="enter new todo here"
             value={this.state.newTodo}
             onChange={this.handleAddTodo}
           />
