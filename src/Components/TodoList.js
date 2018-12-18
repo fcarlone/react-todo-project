@@ -5,9 +5,16 @@ import database from '../firebase/firebase';
 import moment from 'moment';
 import { firebase } from '../firebase/firebase';
 
+firebase.auth().onAuthStateChanged((user) => {
+  console.log('test', user.uid)
+});
+
+
 class TodoList extends React.Component {
   constructor(props) {
     super(props)
+
+
 
     this.state = {
       todos: [],
@@ -15,31 +22,56 @@ class TodoList extends React.Component {
     };
   };
 
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log('TodoList Firebase user.id', user.uid)
+    });
+    console.log(`update state.user`, this.state)
+    console.log(`firebaseUserID`, this.state)
+    console.log(`componenet will update`)
+  }
+
   componentWillMount() {
+    let firebaseUserID = '';
 
     // view Firebase user id
-    database.ref('users').once('value', (snapshot) => {
+    firebase.auth().onAuthStateChanged((user) => {
+      firebaseUserID = user.uid
 
-      console.log(`snapkey`)
-    })
+      return database.ref(`users/${firebaseUserID}/todos`).on('child_added', (snapshot) => {
+        const todo = {
+          id: snapshot.key,
+          text: snapshot.val().text,
+          completed: false,
+          completedAt: ''
+        };
 
-    console.log(this.state)
+        const addTodo = [...this.state.todos, todo];
 
-    database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos`).on('child_added', (snapshot) => {
-      const todo = {
-        id: snapshot.key,
-        text: snapshot.val().text,
-        completed: false,
-        completedAt: ''
-      };
+        this.setState({
+          todos: addTodo
+        });
+      })
 
-      const addTodo = [...this.state.todos, todo];
+    });
+    console.log(`update state.user`, this.state)
+    console.log(`firebaseUserID`, firebaseUserID)
 
+    // get firebase id
+    database.ref('users').on('child_added', (snapshot) => {
+      const user = {
+        user: snapshot.key
+      }
       this.setState({
-        todos: addTodo
-      });
-    })
+        user: user
+      })
+    });
+    console.log(`setState for user`, this.state)
+
+
   };
+
+
 
   onChangeNewTodo(newTodo) {
 
