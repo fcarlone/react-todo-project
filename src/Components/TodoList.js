@@ -3,13 +3,15 @@ import TodoForm from './TodoForm';
 import Todo from './Todo';
 import database from '../firebase/firebase';
 import moment from 'moment';
+import { firebase } from '../firebase/firebase';
 
 class TodoList extends React.Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      todos: []
+      todos: [],
+      user: ''
     };
   };
 
@@ -28,17 +30,33 @@ class TodoList extends React.Component {
         todos: addTodo
       });
     })
+
+    database.ref().on('child_added', (snapshot) => {
+      const user = snapshot.key
+      console.log('firebase user', user);
+    })
   };
 
   onChangeNewTodo(newTodo) {
+    // view Firebase user id
+    firebase.auth().onAuthStateChanged((user) => {
+      let addUserID = user.uid
+      console.log('TodoList', user.uid)
+      this.setState({
+        user: addUserID
+      })
+    });
+
+
     // push new todo to firebase
     database.ref('todos').push({
       text: newTodo.newTodo,
       completed: false,
       completedAt: ''
     }).then(() => {
-      console.log(this.state.todos)
+      console.log(this.state)
     });
+
   };
 
   onRemoveTodo = (id) => {
@@ -57,9 +75,10 @@ class TodoList extends React.Component {
   toggleComplete = (id) => {
     this.setState({
       todos: this.state.todos.map((todo) => {
-        const testCompletedValue = todo.completed ? '' : moment().format('MMMM Do YYYY, h: mm: ss a');
+        const testCompletedValue = todo.completed ? '' : moment().format('MMMM Do YYYY, h:mm:ss a');
         const completedValue = todo.completed;
         const completedAtValue = testCompletedValue;
+
 
         if (todo.id === id) {
           // update firesbase
