@@ -16,7 +16,16 @@ class TodoList extends React.Component {
   };
 
   componentWillMount() {
-    database.ref('todos').on('child_added', (snapshot) => {
+
+    // view Firebase user id
+    database.ref('users').once('value', (snapshot) => {
+
+      console.log(`snapkey`)
+    })
+
+    console.log(this.state)
+
+    database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos`).on('child_added', (snapshot) => {
       const todo = {
         id: snapshot.key,
         text: snapshot.val().text,
@@ -30,26 +39,15 @@ class TodoList extends React.Component {
         todos: addTodo
       });
     })
-
-    database.ref().on('child_added', (snapshot) => {
-      const user = snapshot.key
-      console.log('firebase user', user);
-    })
   };
 
   onChangeNewTodo(newTodo) {
-    // view Firebase user id
-    firebase.auth().onAuthStateChanged((user) => {
-      let addUserID = user.uid
-      console.log('TodoList', user.uid)
-      this.setState({
-        user: addUserID
-      })
-    });
+
 
 
     // push new todo to firebase
-    database.ref('todos').push({
+    const addUserID = this.state.user;
+    database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos`).push({
       text: newTodo.newTodo,
       completed: false,
       completedAt: ''
@@ -60,7 +58,6 @@ class TodoList extends React.Component {
   };
 
   onRemoveTodo = (id) => {
-    // console.log('onRemoveTodo function call', id);
     // remove state
     this.setState((preState) => ({
       todos: preState.todos.filter((todo) => {
@@ -69,7 +66,7 @@ class TodoList extends React.Component {
     }));
 
     // remove firebase
-    database.ref(`todos/${id}`).remove()
+    database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos/${id}`).remove()
   };
 
   toggleComplete = (id) => {
@@ -82,7 +79,7 @@ class TodoList extends React.Component {
 
         if (todo.id === id) {
           // update firesbase
-          database.ref(`todos/${id}`).update({
+          database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos/${id}`).update({
             completed: !completedValue,
             completedAt: completedAtValue
           })
