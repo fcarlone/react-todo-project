@@ -5,16 +5,9 @@ import database from '../firebase/firebase';
 import moment from 'moment';
 import { firebase } from '../firebase/firebase';
 
-firebase.auth().onAuthStateChanged((user) => {
-  console.log('test', user.uid)
-});
-
-
 class TodoList extends React.Component {
   constructor(props) {
     super(props)
-
-
 
     this.state = {
       todos: [],
@@ -22,21 +15,10 @@ class TodoList extends React.Component {
     };
   };
 
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged((user) => {
-      console.log('TodoList Firebase user.id', user.uid)
-    });
-    console.log(`update state.user`, this.state)
-    console.log(`firebaseUserID`, this.state)
-    console.log(`componenet will update`)
-  }
-
   componentWillMount() {
-    let firebaseUserID = '';
-
     // view Firebase user id
     firebase.auth().onAuthStateChanged((user) => {
-      firebaseUserID = user.uid
+      const firebaseUserID = user.uid
 
       return database.ref(`users/${firebaseUserID}/todos`).on('child_added', (snapshot) => {
         const todo = {
@@ -49,44 +31,23 @@ class TodoList extends React.Component {
         const addTodo = [...this.state.todos, todo];
 
         this.setState({
-          todos: addTodo
+          todos: addTodo,
+          user: firebaseUserID
         });
       })
-
-    });
-    console.log(`update state.user`, this.state)
-    console.log(`firebaseUserID`, firebaseUserID)
-
-    // get firebase id
-    database.ref('users').on('child_added', (snapshot) => {
-      const user = {
-        user: snapshot.key
-      }
-      this.setState({
-        user: user
-      })
-    });
-    console.log(`setState for user`, this.state)
-
-
+    })
   };
 
 
 
   onChangeNewTodo(newTodo) {
-
-
-
     // push new todo to firebase
-    const addUserID = this.state.user;
-    database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos`).push({
+    const firebaseUserID = this.state.user;
+    database.ref(`users/${firebaseUserID}/todos`).push({
       text: newTodo.newTodo,
       completed: false,
       completedAt: ''
-    }).then(() => {
-      console.log(this.state)
     });
-
   };
 
   onRemoveTodo = (id) => {
@@ -98,7 +59,8 @@ class TodoList extends React.Component {
     }));
 
     // remove firebase
-    database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos/${id}`).remove()
+    const firebaseUserID = this.state.user;
+    database.ref(`users/${firebaseUserID}/todos/${id}`).remove()
   };
 
   toggleComplete = (id) => {
@@ -111,7 +73,8 @@ class TodoList extends React.Component {
 
         if (todo.id === id) {
           // update firesbase
-          database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos/${id}`).update({
+          const firebaseUserID = this.state.user;
+          database.ref(`users/${firebaseUserID}/todos/${id}`).update({
             completed: !completedValue,
             completedAt: completedAtValue
           })

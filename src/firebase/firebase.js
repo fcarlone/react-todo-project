@@ -1,7 +1,4 @@
 import * as firebase from 'firebase';
-// import firebase from 'firebase/app';
-// import 'firebase/database';
-
 
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -16,12 +13,6 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-
-firebase.auth().onAuthStateChanged((user) => {
-  console.log('firebase', user.uid)
-
-});
-
 
 export { firebase, googleAuthProvider, database as default };
 

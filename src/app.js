@@ -5,7 +5,6 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import { firebase } from './firebase/firebase';
 
-
 const jsx = (
   <AppRouter />
 );
@@ -20,8 +19,6 @@ const renderApp = () => {
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    console.log('uid', user.uid)
-
     renderApp();
     if (history.location.pathname === '/') {
       history.push('/dashboard');
