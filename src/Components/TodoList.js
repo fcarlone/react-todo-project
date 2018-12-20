@@ -19,7 +19,6 @@ class TodoList extends React.Component {
     // view Firebase user id
     firebase.auth().onAuthStateChanged((user) => {
       const firebaseUserID = user.uid
-      console.log('TodoList', firebaseUserID)
 
       return database.ref(`users/${firebaseUserID}/todos`).on('child_added', (snapshot) => {
         const todo = {
@@ -35,20 +34,20 @@ class TodoList extends React.Component {
           todos: addTodo,
           user: firebaseUserID
         });
-        console.log('this.state', this.state)
       })
     })
   };
 
   onChangeNewTodo(newTodo) {
-    // push new todo to firebase
-    const firebaseUserID = this.state.user;
-    database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos`).push({
-      text: newTodo.newTodo,
-      completed: false,
-      completedAt: ''
-    });
-
+    firebase.auth().onAuthStateChanged((user) => {
+      const firebaseUserID = user.uid
+      // push new todo to firebase
+      database.ref(`users/${firebaseUserID}/todos`).push({
+        text: newTodo.newTodo,
+        completed: false,
+        completedAt: ''
+      });
+    })
   };
 
   onRemoveTodo = (id) => {
@@ -67,10 +66,9 @@ class TodoList extends React.Component {
   toggleComplete = (id) => {
     this.setState({
       todos: this.state.todos.map((todo) => {
-        const testCompletedValue = todo.completed ? '' : moment().format('MMMM Do YYYY, h:mm:ss a');
         const completedValue = todo.completed;
-        const completedAtValue = testCompletedValue;
-
+        const conditionalCompletedValue = todo.completed ? '' : moment().format('MMMM Do YYYY, h:mm:ss a');
+        const completedAtValue = conditionalCompletedValue;
 
         if (todo.id === id) {
           // update firesbase
