@@ -1,0 +1,17 @@
+:local(.layout) {
+  background-color: black;
+  background-size: cover;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+:local(.container) {
+  color: red;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  text-align: center;
+}
