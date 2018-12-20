@@ -1,5 +1,6 @@
 // Stateless React Component
 import React from 'react';
+import database from '../firebase/firebase';
 
 const Todo = (props) => (
   <div>

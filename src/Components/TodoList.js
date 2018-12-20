@@ -19,13 +19,14 @@ class TodoList extends React.Component {
     // view Firebase user id
     firebase.auth().onAuthStateChanged((user) => {
       const firebaseUserID = user.uid
+      console.log('TodoList', firebaseUserID)
 
       return database.ref(`users/${firebaseUserID}/todos`).on('child_added', (snapshot) => {
         const todo = {
           id: snapshot.key,
           text: snapshot.val().text,
-          completed: false,
-          completedAt: ''
+          completed: snapshot.val().completed,
+          completedAt: snapshot.val().completedAt
         };
 
         const addTodo = [...this.state.todos, todo];
@@ -34,20 +35,20 @@ class TodoList extends React.Component {
           todos: addTodo,
           user: firebaseUserID
         });
+        console.log('this.state', this.state)
       })
     })
   };
 
-
-
   onChangeNewTodo(newTodo) {
     // push new todo to firebase
     const firebaseUserID = this.state.user;
-    database.ref(`users/${firebaseUserID}/todos`).push({
+    database.ref(`users/cKRus5aHggOZKlRBqb1HLQDvxtl1/todos`).push({
       text: newTodo.newTodo,
       completed: false,
       completedAt: ''
     });
+
   };
 
   onRemoveTodo = (id) => {
