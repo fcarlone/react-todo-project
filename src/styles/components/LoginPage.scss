@@ -1,17 +1,44 @@
-:local(.layout) {
-  background-color: black;
-  background-size: cover;
-  color: white;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+:local(.boxHeader) {
+  color: white
 }
 
-:local(.container) {
-  color: red;
+:local(.boxLayout) {
+  align-items: center;
+  background-color: black;
+  background-size: cover;
   display: flex;
   flex-direction: column;
+  font-family: Helvetica, Arial, sans-serif;
   height: 100vh;
   justify-content: center;
+  width: 100vw;
+}
+
+:local(.boxLayoutBox) {
+  background: fade-out(white, .2);
+  border-radius: 3px;
+  color: 333333;
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 3.2rem, 1.6rem;
   text-align: center;
+  width: 25rem;
+}
+
+:local(.boxLayoutTitle) {
+  color: 333333;
+  margin: 0.8rem 1rem 0 1rem;
+  line-height: 1;
+}
+
+:local(.buttonLayoutGoogle) {
+  background-color: #1c88bf;
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0.8rem 1rem 1rem 1rem;
+  padding: 0.8rem;
+  text-decoration: none;
 }

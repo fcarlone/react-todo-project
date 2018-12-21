@@ -11,11 +11,14 @@ const startLogin = () => {
 };
 
 export const LoginPage = () => (
-  <div className={styles.layout}>
-    <h1>LoginPage Component</h1>
-    <div className={styles.container}>
-      <p>Login here</p>
-      <button onClick={startLogin}>Login</button>
+  <div className={styles.boxLayout}>
+    <h1 className={styles.boxHeader}>LoginPage Component</h1>
+    <h1 className={styles.boxHeader}>React Todo App</h1>
+    <div className={styles.boxLayoutBox}>
+      <h1 className={styles.boxLayoutTitle}>Login to start inputting your todos</h1>
+      <div>
+        <button className={styles.buttonLayoutGoogle} onClick={startLogin}>Login with your Google account</button>
+      </div>
     </div>
   </div>
 );

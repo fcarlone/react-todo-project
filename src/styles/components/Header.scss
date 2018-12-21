@@ -1,0 +1,28 @@
+:local(.header) {
+  background: #364051;
+  padding: 0 1rem 0 1rem;
+}
+
+:local(.headerContent) {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem, 0;
+}
+
+:local(.headerTitle) {
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  h1 {
+    margin: 0;
+  }
+}
+
+:local(.buttonLayout) {
+  background-color: #364051;
+  border: none;
+  color: white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem
+}

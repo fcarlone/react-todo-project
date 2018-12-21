@@ -1,16 +1,17 @@
 import React from 'react';
 import { firebase } from '../firebase/firebase';
-import { NavLink } from 'react-router-dom';
+import styles from '../styles/components/Header.scss';
+
 
 const startLogout = () => {
   return firebase.auth().signOut();
 };
 
 const Header = () => (
-  <header>
-    <div>
-      <h1>Header Component</h1>
-      <button onClick={startLogout}>Logout</button>
+  <header className={styles.header}>
+    <div className={styles.headerContent}>
+      <h1 className={styles.headerTitle}>React Todo App</h1>
+      <button className={styles.buttonLayout} onClick={startLogout}>Logout</button>
     </div>
   </header>
 );

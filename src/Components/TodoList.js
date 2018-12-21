@@ -4,6 +4,7 @@ import Todo from './Todo';
 import database from '../firebase/firebase';
 import moment from 'moment';
 import { firebase } from '../firebase/firebase';
+import styles from '../styles/components/TodoList.scss'
 
 class TodoList extends React.Component {
   constructor(props) {
