@@ -97,17 +97,20 @@ class TodoList extends React.Component {
   render() {
     return (
       <div>
-        <h3>TodoList Component</h3>
         <TodoForm changeTodos={this.onChangeNewTodo.bind(this)} />
-        <p>List of todos</p>
-        {this.state.todos.map((todo) => {
-          return <Todo
-            key={todo.id}
-            toggleComplete={() => this.toggleComplete(todo.id)}
-            onRemoveTodo={() => this.onRemoveTodo(todo.id)}
-            todo={todo}
-          />
-        })}
+        <div className={styles.listHeader}>
+          <div className={styles.listBody}>
+            {this.state.todos.map((todo) => {
+              return <Todo
+                className={styles.listItemMessage}
+                key={todo.id}
+                todo={todo}
+                toggleComplete={() => this.toggleComplete(todo.id)}
+                onRemoveTodo={() => this.onRemoveTodo(todo.id)}
+              />
+            })}
+          </div>
+        </div>
       </div>
     )
   }

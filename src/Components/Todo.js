@@ -1,6 +1,6 @@
 // Stateless React Component
 import React from 'react';
-import database from '../firebase/firebase';
+import styles from '../styles/components/TodoList.scss';
 
 const Todo = (props) => (
   <div>
@@ -12,6 +12,7 @@ const Todo = (props) => (
 
     <span>
       <button
+        className={styles.completedButton}
         onClick={props.toggleComplete}
       >
         completed
@@ -20,6 +21,7 @@ const Todo = (props) => (
 
     <span>
       <button
+        className={styles.deleteButton}
         onClick={props.onRemoveTodo}
       >
         delete

@@ -12,7 +12,6 @@ const startLogin = () => {
 
 export const LoginPage = () => (
   <div className={styles.boxLayout}>
-    <h1 className={styles.boxHeader}>LoginPage Component</h1>
     <h1 className={styles.boxHeader}>React Todo App</h1>
     <div className={styles.boxLayoutBox}>
       <h1 className={styles.boxLayoutTitle}>Login to start inputting your todos</h1>

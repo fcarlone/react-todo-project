@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../styles/components/TodoForm.scss';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -38,20 +39,25 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>Todo Form Component</h3>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          {this.state.error && <p>{this.state.error}</p>}
-          <input
-            type="text"
-            placeholder="enter new todo here"
-            value={this.state.newTodo}
-            onChange={this.handleAddTodo}
-          />
+      <div className={styles.pageHeader}>
+        <div className={styles.contentContainer}>
+          <h3 className={styles.pageHeaderTitle}>Todo Input Form</h3>
           <div>
-            <button>Add Todo</button>
+            <form onSubmit={this.handleSubmit.bind(this)}>
+              {this.state.error && <p>{this.state.error}</p>}
+              <input
+                className={styles.inputField}
+                type="text"
+                placeholder="enter new todo here"
+                value={this.state.newTodo}
+                onChange={this.handleAddTodo}
+              />
+              <div>
+                <button className={styles.button}>Add Todo</button>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
       </div>
     )
   }
