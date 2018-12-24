@@ -4,20 +4,21 @@ import styles from '../styles/components/TodoList.scss';
 
 const Todo = (props) => (
   <div>
-    <span style={{
-      textDecoration: props.todo.completed ? "line-through" : ""
-    }}>
-      {props.todo.text}
-    </span>
-
     <span>
       <button
         className={styles.completedButton}
         onClick={props.toggleComplete}
       >
         completed
-      </button>
+        </button>
     </span>
+    <span style={{
+      textDecoration: props.todo.completed ? "line-through" : ""
+    }}>
+      {props.todo.text}
+    </span>
+
+    <span>{props.todo.completedAt}</span>
 
     <span>
       <button
@@ -28,7 +29,7 @@ const Todo = (props) => (
       </button>
     </span>
 
-    <span>{props.todo.completedAt}</span>
+
   </div>
 );
 

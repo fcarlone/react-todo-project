@@ -1,5 +1,6 @@
 // Stateless functional component
 import React from 'react';
+import { Link } from "react-router-dom";
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 import styles from '../styles/components/LoginPage.scss';
 
@@ -17,6 +18,9 @@ export const LoginPage = () => (
       <h1 className={styles.boxLayoutTitle}>Login to start inputting your todos</h1>
       <div>
         <button className={styles.buttonLayoutGoogle} onClick={startLogin}>Login with your Google account</button>
+      </div>
+      <div>
+        <button><Link to="/signin">Login with your email address</Link></button>
       </div>
     </div>
   </div>
