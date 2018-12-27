@@ -16,17 +16,22 @@ class TodoList extends React.Component {
     };
   };
 
+  getInitialState() {
+    this.setState = {}
+  }
+
   componentWillMount() {
     // view Firebase user id
     firebase.auth().onAuthStateChanged((user) => {
       const firebaseUserID = user.uid
 
-      return database.ref(`users/${firebaseUserID}/todos`).on('child_added', (snapshot) => {
+      return database.ref(`users/${firebaseUserID}/todos`).on("child_added", (snapshot) => {
         const todo = {
           id: snapshot.key,
           text: snapshot.val().text,
           completed: snapshot.val().completed,
-          completedAt: snapshot.val().completedAt
+          completedAt: snapshot.val().completedAt,
+          user: snapshot.val().user
         };
 
         const addTodo = [...this.state.todos, todo];
@@ -46,8 +51,10 @@ class TodoList extends React.Component {
       database.ref(`users/${firebaseUserID}/todos`).push({
         text: newTodo.newTodo,
         completed: false,
-        completedAt: ''
-      });
+        completedAt: '',
+        user: firebaseUserID
+
+      })
     })
   };
 

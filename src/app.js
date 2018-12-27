@@ -22,6 +22,7 @@ firebase.auth().onAuthStateChanged((user) => {
       history.push('/dashboard');
     }
     console.log('log in')
+
   } else {
     renderApp();
     history.push('/');
