@@ -41,6 +41,7 @@ class TodoForm extends React.Component {
     return (
       <div className={styles.pageHeader}>
         <div className={styles.contentContainer}>
+          <br />
           <h3 className={styles.pageHeaderTitle}>Todo Input Form</h3>
           <div>
             <form onSubmit={this.handleSubmit.bind(this)}>
@@ -48,7 +49,7 @@ class TodoForm extends React.Component {
               <input
                 className={styles.inputField}
                 type="text"
-                placeholder="enter new todo here"
+                placeholder="enter todo here"
                 value={this.state.newTodo}
                 onChange={this.handleAddTodo}
               />

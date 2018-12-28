@@ -20,7 +20,7 @@ export const LoginPage = () => (
         <button className={styles.buttonLayoutGoogle} onClick={startLogin}>Login with your Google account</button>
       </div>
       <div>
-        <button><Link to="/signin">Login with your email address</Link></button>
+        <button><Link to="/signin" className={styles.buttonLayoutEmail}>Login with your email address</Link></button>
       </div>
     </div>
   </div>

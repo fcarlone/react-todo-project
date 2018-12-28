@@ -36,6 +36,21 @@
   border: none;
   color: white;
   display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1;
+  margin: 0.8rem 1rem 1rem 1rem;
+  padding: 0.8rem;
+  text-decoration: none;
+}
+
+:local(.buttonLayoutEmail) {
+  background-color: white;
+  border: none;
+  color: #1c88bf;
+  display: inline-block;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1;
