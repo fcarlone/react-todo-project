@@ -19,7 +19,6 @@
   border-radius: 3px;
   color: 333333;
   font-family: Helvetica, Arial, sans-serif;
-  padding: 3.2rem, 1.6rem;
   text-align: center;
   width: 25rem;
 }
@@ -35,6 +34,7 @@
   background-color: #1c88bf;
   border: none;
   color: white;
+  cursor: pointer;
   display: inline-block;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.5rem;
@@ -54,7 +54,7 @@
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1;
-  margin: 0.8rem 1rem 1rem 1rem;
+  margin: 0rem 1rem 1rem 1rem;
   padding: 0.8rem;
   text-decoration: none;
 }
