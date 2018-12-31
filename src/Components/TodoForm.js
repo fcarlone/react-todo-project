@@ -33,8 +33,6 @@ class TodoForm extends React.Component {
         newTodo: '',
       }));
     }
-
-
   }
 
   render() {
@@ -42,7 +40,7 @@ class TodoForm extends React.Component {
       <div className={styles.pageHeader}>
         <div className={styles.contentContainer}>
           <br />
-          <h3 className={styles.pageHeaderTitle}>Todo Input Form</h3>
+          <h3 className={styles.pageHeaderTitle}>Todo Form</h3>
           <div>
             <form onSubmit={this.handleSubmit.bind(this)}>
               {this.state.error && <p>{this.state.error}</p>}

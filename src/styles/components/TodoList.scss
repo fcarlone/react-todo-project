@@ -18,27 +18,28 @@
 
 :local(.listItemMessage) {
   color: #333333;
-  margin-right: 1rem;
-  padding: 1.6rem;
-  &:hover {
-    background: none;
-  }
 }
 
 :local(.completedButton) {
   background-color: #f7f7f7;
-  border: thick double #364051;
+  border: 1px solid #364051;
   color: black;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
-  margin: .5rem;
+  margin: 1rem;
+  &:hover {
+    background-color: #14EB28;
+  }
 }
 
 :local(.deleteButton) {
   background-color: #f7f7f7;
-  border: thick double #364051;
+  border: 1px solid #364051;
   color: black;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
   margin: .5rem;
+  &:hover {
+    background-color: red;
+  }
 }
