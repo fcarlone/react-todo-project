@@ -9,7 +9,7 @@ const Todo = (props) => (
       }}>
         {props.todo.text}
       </span>
-      <span style={{ marginLeft: 10 }}>{props.todo.completedAt}</span>
+      <span style={{ marginLeft: 8 }}><span style={{ fontWeight: 600 }}>{props.todo.completed ? " Completed at: " : ""}</span>{props.todo.completedAt}</span>
       <button
         className={styles.completedButton}
         onClick={props.toggleComplete}

@@ -75,7 +75,7 @@ class TodoList extends React.Component {
     this.setState({
       todos: this.state.todos.map((todo) => {
         const completedValue = todo.completed;
-        const conditionalCompletedValue = todo.completed ? '' : moment().format('MMMM Do YYYY, h:mm:ss a');
+        const conditionalCompletedValue = todo.completed ? '' : moment().format('MMMM Do YYYY, h:mm:ssa');
         const completedAtValue = conditionalCompletedValue;
 
         if (todo.id === id) {

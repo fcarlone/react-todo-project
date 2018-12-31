@@ -71,6 +71,7 @@ class EmailLoginPage extends React.Component {
             placeholder="enter password"
             value={this.state.password}
             onChange={this.handlePassword}
+            onKeyPress={(e) => { (e.key === 'Enter' ? this.handleLogin() : null) }}
             className={styles.passwordField}
           />
         </form>
