@@ -31,24 +31,23 @@ class EmailLoginPage extends React.Component {
   handleLogin = () => {
     const email = this.state.email;
     const password = this.state.password;
-    console.log('handleLogin', email, password)
 
     firebase.auth().signInWithEmailAndPassword(email, password)
       .catch((error) => {
-        console.log(error)
+        alert(error)
+        this.props.history.push('/signin')
       });
     this.props.history.push('/dashboard')
   };
 
   handleSignup = () => {
-    console.log(this.state)
     const email = this.state.email;
     const password = this.state.password;
-    console.log('handleSignup', email, password)
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .catch((error) => {
-        console.log(error)
+        alert(error)
+        this.props.history.push('/signin')
       });
     this.props.history.push('/dashboard')
 
