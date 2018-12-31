@@ -1,0 +1,60 @@
+:local(.title) {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 1rem;
+  margin-left: 5rem;
+}
+
+:local(.emailField) {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 1rem;
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+:local(.passwordField) {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 1rem;
+  margin-left: .5rem;
+  padding: 1rem;
+}
+
+:local(.emailLoginButton) {
+  background-color: #1c88bf;
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 1rem;
+  margin-left: 5rem;
+  padding: 1rem;
+  text-decoration: none;
+  &:hover {
+    background-color: grey;
+  }
+}
+
+:local(.emailSignupButton) {
+  background-color: #1c88bf;
+  border: none;
+  color: white;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  padding: 1rem;
+  text-decoration: none;
+  &:hover {
+    background-color: grey;
+  }
+}

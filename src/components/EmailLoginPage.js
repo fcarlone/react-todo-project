@@ -1,5 +1,6 @@
 import React from 'react';
 import * as firebase from 'firebase';
+import styles from '../styles/components/EmailLoginPage.scss'
 
 class EmailLoginPage extends React.Component {
   constructor(props) {
@@ -54,23 +55,35 @@ class EmailLoginPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Login with your email account</h1>
+        <h1 className={styles.title}>Login with your email account</h1>
         <form>
           <input
             type="text"
             placeholder="enter email address"
             value={this.state.email}
             onChange={this.handleEmail}
+            className={styles.emailField}
           />
           <input
             type="text"
             placeholder="enter password"
             value={this.state.password}
             onChange={this.handlePassword}
+            className={styles.passwordField}
           />
         </form>
-        <button onClick={this.handleLogin}>Log in</button>
-        <button onClick={this.handleSignup}>Sign up</button>
+        <button
+          onClick={this.handleLogin}
+          className={styles.emailLoginButton}
+        >
+          Log in
+        </button>
+        <button
+          onClick={this.handleSignup}
+          className={styles.emailSignupButton}
+        >
+          Sign up
+        </button>
       </div>
     )
   }
