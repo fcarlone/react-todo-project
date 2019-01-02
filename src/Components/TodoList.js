@@ -23,8 +23,7 @@ class TodoList extends React.Component {
   componentWillMount() {
     // view Firebase user id
     firebase.auth().onAuthStateChanged((user) => {
-      const firebaseUserID = user.uid
-
+      const firebaseUserID = user.uid;
       return database.ref(`users/${firebaseUserID}/todos`).on("child_added", (snapshot) => {
         const todo = {
           id: snapshot.key,
