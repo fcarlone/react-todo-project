@@ -43,7 +43,7 @@ class TodoForm extends React.Component {
           <h3 className={styles.pageHeaderTitle}>Todo Form</h3>
           <div>
             <form onSubmit={this.handleSubmit.bind(this)}>
-              {this.state.error && <p>{this.state.error}</p>}
+              {this.state.error && <p className={styles.errorMessage}>{this.state.error}</p>}
               <input
                 className={styles.inputField}
                 type="text"

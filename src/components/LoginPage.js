@@ -1,14 +1,10 @@
-// Stateless functional component
 import React from 'react';
 import { Link } from "react-router-dom";
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 import styles from '../styles/components/LoginPage.scss';
 
 const startLogin = () => {
-  return firebase.auth().signInWithPopup(googleAuthProvider)
-    .then((user) => {
-      console.log('startLogin')
-    });
+  return firebase.auth().signInWithPopup(googleAuthProvider);
 };
 
 export const LoginPage = () => (

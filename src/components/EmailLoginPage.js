@@ -55,7 +55,7 @@ class EmailLoginPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.contentContainer}>
         <h1 className={styles.title}>Login with your email account</h1>
         <form>
           <input
