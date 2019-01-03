@@ -1,5 +1,5 @@
 node_modules/
-src/firebase/
+src/firebase/firebase.js
 yarn-error.log
 public/dist
 .env.test
