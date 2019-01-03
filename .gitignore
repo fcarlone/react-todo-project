@@ -2,6 +2,5 @@ node_modules/
 src/firebase/firebase.js
 yarn-error.log
 public/dist
-.env.test
 .env.development
 .vscode
