@@ -13,18 +13,18 @@ You will need to create your own Firebase project and copy the configuration cod
 Clone the repository: <https://github.com/fcarlone/react-todo-project>
 
 Install packages: 
-`npm install`
-or 
-`yarn install`
+`npm install`  
+or  
+`yarn install`  
 
-For installing Firebase Authentication and Realtime Database, follow instructions in **.env.development.example**.
+For installing Firebase Authentication and Realtime Database, follow instructions in **.env.development.example**.  
 For more information - read: [Add Firebase to your JavaScript Project](https://firebase.google.com/docs/web/setup?authuser=0)
 
 To run the app in the development environment:
-`npm run dev-server`
-or
-`yarn run dev-server`
+`npm run dev-server`  
+or  
+`yarn run dev-server`  
 
 ### Future features
-Add a count for total todos and completed todos.
+Add a count for total todos and completed todos.  
 Add GitHub sign-in method.
