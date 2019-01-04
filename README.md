@@ -5,7 +5,7 @@ This application allows you to enter a list of todos.  You can mark a todo as "c
 ### Built from my React boilerplate repository:
 [GitHub React Boilerplate Repo](https://github.com/fcarlone/react-boilerplate "GitHub Repo")
 
-### User authentication and data storage is accomplished with Firebase JavaScript SDK
+### User authentication and data storage is provided using Firebase JavaScript SDK
 If you clone this repo, please follow the instructions in the **.env.development.example** file.
 You will need to create your own Firebase project and copy the configuration code snippet into **.env.development.example**.
 
