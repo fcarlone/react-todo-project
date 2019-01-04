@@ -26,5 +26,5 @@ or
 `yarn run dev-server`  
 
 ### Future features
-Add a count for total todos and completed todos
-Add GitHub sign-in method
+Add a count for total todos and completed todos.  
+Add GitHub sign-in method.
