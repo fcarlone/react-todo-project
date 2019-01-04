@@ -27,5 +27,4 @@ or
 
 ### Future features
 Add a count for total todos and completed todos.
-
 Add GitHub sign-in method.
