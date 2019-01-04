@@ -1,9 +1,9 @@
 # React Todo App
 
+This application allows you to enter a list of todos.  You can mark a todo as "completed" or delete the todo if you no longer need the todo listed.
+
 ### Built from my React boilerplate repository:
 [GitHub React Boilerplate Repo](https://github.com/fcarlone/react-boilerplate "GitHub Repo")
-
-This application allows you to enter a list of todos.  You can mark a todo as "completed" or delete the todo if you no longer need the todo listed.
 
 ### User authentication and data storage is accomplished with Firebase JavaScript SDK
 If you clone this repo, please follow the instructions in the **.env.development.example** file.
@@ -12,7 +12,7 @@ You will need to create your own Firebase project and copy the configuration cod
 ### Usage
 Clone the repository: <https://github.com/fcarlone/react-todo-project>
 
-Install packages: 
+Install packages:  
 `npm install`  
 or  
 `yarn install`  
@@ -20,11 +20,11 @@ or
 For installing Firebase Authentication and Realtime Database, follow instructions in **.env.development.example**.  
 For more information - read: [Add Firebase to your JavaScript Project](https://firebase.google.com/docs/web/setup?authuser=0)
 
-To run the app in the development environment:
+To run the app in the development environment:  
 `npm run dev-server`  
 or  
 `yarn run dev-server`  
 
 ### Future features
-Add a count for total todos and completed todos.  
-Add GitHub sign-in method.
+Add a count for total todos and completed todos
+Add GitHub sign-in method
