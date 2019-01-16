@@ -35,7 +35,7 @@
     "uuid": "^3.3.2",
     "validator": "^10.5.0",
     "webpack": "^4.16.5",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": ">=3.1.11"
   },
   "devDependencies": {
     "dotenv": "^6.2.0",
