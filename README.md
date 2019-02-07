@@ -2,8 +2,8 @@
 
 This application allows you to enter a list of todos.  You can mark a todo as "completed" or delete the todo if you no longer need the todo listed.
 
-### View the React Todo:
-App deployed using Heroku: <https://fcarlone-react-todo.herokuapp.com/> 
+### View the React Todo App:
+App deployed using Heroku: <a href="https://fcarlone-react-todo.herokuapp.com/" target="_blank"> </a>
 
 ### Built from my React boilerplate repository:
 [GitHub React Boilerplate Repo](https://github.com/fcarlone/react-boilerplate "GitHub Repo")
