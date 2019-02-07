@@ -30,31 +30,64 @@
   margin: 0.8rem 1rem 0 1rem;
 }
 
-:local(.buttonLayoutGoogle) {
-  background-color: #1c88bf;
-  border: none;
-  color: white;
-  cursor: pointer;
+:local(.googleButton) {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  height: 40px;
+  border-width: 0;
+  background: white;
+  color: black;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  padding: 0 10px 10px 0;
+  margin: 8px 8px 8px 8px;
+  &:hover {
+    cursor: pointer;
+    color: #4285F4;
+  }
+}
+
+:local(.googleButtonIcon) {
   display: inline-block;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1;
-  margin: 0.8rem 1rem 1rem 1rem;
-  padding: 0.8rem;
-  text-decoration: none;
+  vertical-align: middle;
+  margin: 8px 0 8px 8px;
+  width: 28px;
+  height: 28px;
+  box-sizing: border-box;
+  padding: 0 0 10px 0;
 }
 
 :local(.buttonLayoutEmail) {
   background-color: white;
-  border: none;
-  color: #1c88bf;
+  border-radius: 5px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.05);
+  transition-property: background-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-in-out;
+  color: black;
   display: inline-block;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 300;
-  line-height: 1;
-  margin: 0rem 1rem 1rem 1rem;
-  padding: 0.8rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  padding: 10px 10px 10px 10px;
+  margin: 8px 0px 8px 8px;
   text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    color: #4285F4;
+  }
+}
+
+:local(.emailButtonText__envelopeIcon) {
+  color: black; // font-size: 10px;
+  // margin: 0 0 0 8px;
+  &:hover {
+    cursor: pointer;
+    color: black;
+  }
 }
