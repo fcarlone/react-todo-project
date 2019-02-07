@@ -23,23 +23,29 @@
 :local(.completedButton) {
   background-color: #f7f7f7;
   border: 1px solid #364051;
+  border-radius: 5px;
   color: black;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
   margin: 1rem;
   &:hover {
-    background-color: #14EB28;
+    // background-color: #14EB28;
+    background-color: #33FF5B;
+    cursor: pointer;
   }
 }
 
 :local(.deleteButton) {
   background-color: #f7f7f7;
   border: 1px solid #364051;
+  border-radius: 5px;
   color: black;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 1.25rem;
   margin: .5rem;
   &:hover {
-    background-color: red;
+    // background-color: red;
+    background-color: #FF4633;
+    cursor: pointer;
   }
 }

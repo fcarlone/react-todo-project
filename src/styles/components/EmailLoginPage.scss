@@ -8,7 +8,7 @@
   font-weight: 500;
   line-height: 1;
   margin-bottom: 1rem;
-  margin-left: 5rem;
+  margin-left: 6rem;
 }
 
 :local(.emailField) {
@@ -16,7 +16,7 @@
   font-weight: 300;
   line-height: 1;
   margin-bottom: 1rem;
-  margin-left: 5rem;
+  margin-left: 6rem;
   padding: 1rem;
 }
 
@@ -32,13 +32,14 @@
 :local(.emailLoginButton) {
   background-color: #1c88bf;
   border: none;
+  border-radius: 5px;
   color: white;
   display: inline-block;
   font-size: 1rem;
   font-weight: 300;
   line-height: 1;
   margin-bottom: 1rem;
-  margin-left: 5rem;
+  margin-left: 6rem;
   padding: 1rem;
   text-decoration: none;
   &:hover {
@@ -49,6 +50,7 @@
 :local(.emailSignupButton) {
   background-color: #1c88bf;
   border: none;
+  border-radius: 5px;
   color: white;
   display: inline-block;
   font-size: 1rem;

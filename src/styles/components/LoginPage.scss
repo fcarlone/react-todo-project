@@ -84,10 +84,13 @@
 }
 
 :local(.emailButtonText__envelopeIcon) {
-  color: black; // font-size: 10px;
-  // margin: 0 0 0 8px;
+  color: black;
   &:hover {
     cursor: pointer;
     color: black;
   }
+}
+
+button:focus {
+  outline: 0;
 }

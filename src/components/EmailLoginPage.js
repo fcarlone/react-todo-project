@@ -56,7 +56,7 @@ class EmailLoginPage extends React.Component {
   render() {
     return (
       <div className={styles.contentContainer}>
-        <h1 className={styles.title}>Login with your email account</h1>
+        <h1 className={styles.title}>Enter your email and password</h1>
         <form>
           <input
             type="text"
@@ -64,6 +64,7 @@ class EmailLoginPage extends React.Component {
             value={this.state.email}
             onChange={this.handleEmail}
             className={styles.emailField}
+            autoFocus="autofocus"
           />
           <input
             type="text"

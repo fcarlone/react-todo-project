@@ -50,6 +50,7 @@ class TodoForm extends React.Component {
                 placeholder="enter todo here"
                 value={this.state.newTodo}
                 onChange={this.handleAddTodo}
+                autoFocus="autofocus"
               />
               <div>
                 <button className={styles.button}>Add Todo</button>
