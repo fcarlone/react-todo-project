@@ -59,13 +59,14 @@ class EmailLoginPage extends React.Component {
         <h1 className={styles.title}>Enter your email and password</h1>
         <form>
           <input
-            type="text"
+            type="email"
             placeholder="enter email address"
             value={this.state.email}
             onChange={this.handleEmail}
             className={styles.emailField}
-            autoFocus="autofocus"
+            autoFocus
           />
+          <br></br>
           <input
             type="text"
             placeholder="enter password"
@@ -87,7 +88,7 @@ class EmailLoginPage extends React.Component {
         >
           Sign up
         </button>
-      </div>
+      </div >
     )
   }
 };
